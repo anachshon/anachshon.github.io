@@ -6,7 +6,7 @@
     <title>מיכל קנלר ברגמן - מטפלת באמצעות אמנות</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&family=Secular+One&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700;900&family=Heebo:wght@300;400;700&family=Karantina:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,72 +16,64 @@
 
         body {
             background-color: #f5edda;
-            font-family: 'Assistant', sans-serif;
+            font-family: 'Heebo', sans-serif;
+            font-weight: 300;
             color: #333;
-            line-height: 1.8;
+            line-height: 1.9;
             direction: rtl;
         }
 
         .page {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
-            padding: 20px 40px 60px;
+            padding: 0 40px 60px;
             position: relative;
-            overflow: hidden;
         }
 
-        /* Watercolor decoration top */
+        /* Watercolor top-right */
         .watercolor-top {
             position: absolute;
-            top: -20px;
-            right: -30px;
-            width: 500px;
-            opacity: 0.85;
+            top: 0;
+            right: 0;
+            width: 350px;
             pointer-events: none;
             z-index: 0;
-        }
-
-        .doodle-topright {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 150px;
-            opacity: 0.7;
-            pointer-events: none;
         }
 
         /* Header */
         .header {
             text-align: center;
-            margin-top: 60px;
+            padding-top: 80px;
             margin-bottom: 30px;
             position: relative;
             z-index: 1;
         }
 
         .header h1 {
-            font-family: 'Secular One', sans-serif;
-            font-size: 2.8em;
+            font-family: 'Frank Ruhl Libre', serif;
+            font-weight: 900;
+            font-size: 3em;
             color: #222;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
+            margin-bottom: 0;
         }
 
         .header .ma {
-            font-family: 'Assistant', sans-serif;
+            font-family: 'Frank Ruhl Libre', serif;
             font-weight: 700;
-            font-size: 0.85em;
+            font-size: 0.7em;
+            margin-right: 8px;
         }
 
         .header .subtitle {
-            font-family: 'Caveat', cursive;
-            font-size: 2em;
+            font-family: 'Karantina', cursive;
+            font-size: 2.2em;
             color: #c8850a;
-            margin-top: 5px;
+            margin-top: 0;
+            font-weight: 700;
         }
 
-        /* Main content */
-        .content {
+        /* Main text section with doodles on the left */
+        .text-section {
             position: relative;
             z-index: 1;
         }
@@ -90,32 +82,59 @@
             font-size: 1.05em;
             line-height: 1.9;
             text-align: right;
-            margin-bottom: 25px;
-            padding: 0 10px;
+            padding-left: 160px; /* room for doodles on the left */
         }
 
         .main-text p {
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
-        /* Decorative separator */
-        .separator {
-            text-align: center;
-            margin: 15px 0;
-            opacity: 0.4;
+        /* Doodles floating on the left side of the text */
+        .doodles-column {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding-top: 20px;
         }
 
-        .separator svg {
+        .doodles-column img {
             width: 120px;
+            opacity: 0.9;
+        }
+
+        /* Separator - pen drawing a line */
+        .separator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0 20px;
+            gap: 10px;
+        }
+
+        .separator .pen-img {
+            width: 60px;
+        }
+
+        .separator .line {
+            flex: 1;
+            max-width: 300px;
+            height: 1px;
+            background: #666;
         }
 
         /* About section */
         .about-section {
             display: flex;
-            gap: 40px;
+            gap: 30px;
             align-items: flex-start;
-            margin-top: 40px;
-            flex-wrap: wrap;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
         }
 
         .about-text {
@@ -124,16 +143,17 @@
         }
 
         .about-text h2 {
-            font-family: 'Caveat', cursive;
-            font-size: 2.2em;
+            font-family: 'Karantina', cursive;
+            font-size: 2.4em;
             color: #c8850a;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
 
         .about-text p {
             font-size: 1em;
             line-height: 1.8;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .about-photo {
@@ -141,40 +161,30 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
         }
 
-        .photo-circle {
-            width: 260px;
-            height: 260px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .photo-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .signature {
-            width: 120px;
-            opacity: 0.7;
+        .about-photo img {
+            width: 280px;
         }
 
         /* Footer / phone */
         .footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 15px;
             position: relative;
             z-index: 1;
         }
 
+        .footer .phone-img {
+            width: 120px;
+        }
+
         .phone {
-            font-family: 'Assistant', sans-serif;
-            font-size: 1.4em;
+            font-family: 'Heebo', sans-serif;
+            font-size: 1.5em;
             font-weight: 700;
             color: #444;
             text-decoration: none;
@@ -186,49 +196,30 @@
             color: #c8850a;
         }
 
-        /* Decorative doodles */
-        .doodle {
-            position: absolute;
-            pointer-events: none;
-            opacity: 0.5;
-        }
-
-        .doodle-mid-right {
-            left: 10px;
-            top: 45%;
-            width: 80px;
-        }
-
-        .doodle-hand-left {
-            right: -10px;
-            top: 55%;
-            width: 80px;
-        }
-
-        .doodle-hand-right {
-            left: -10px;
-            top: 52%;
-            width: 80px;
-        }
-
-        .doodle-phone {
-            right: calc(50% + 80px);
-            bottom: 20px;
-            width: 80px;
-        }
-
         /* Responsive */
         @media (max-width: 700px) {
             .page {
-                padding: 15px 20px 40px;
+                padding: 0 20px 40px;
+            }
+
+            .header {
+                padding-top: 50px;
             }
 
             .header h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
 
             .header .subtitle {
-                font-size: 1.5em;
+                font-size: 1.6em;
+            }
+
+            .main-text {
+                padding-left: 0;
+            }
+
+            .doodles-column {
+                display: none;
             }
 
             .about-section {
@@ -241,23 +232,15 @@
             }
 
             .watercolor-top {
-                width: 300px;
-            }
-
-            .main-text {
-                font-size: 0.95em;
+                width: 220px;
             }
         }
     </style>
 </head>
 <body>
     <div class="page">
-        <!-- Decorative elements -->
-        <img src="images/watercolor_top.png" alt="" class="watercolor-top" aria-hidden="true">
-        <img src="images/doodle_topright.png" alt="" class="doodle-topright" aria-hidden="true">
-        <img src="images/doodle_mid.png" alt="" class="doodle doodle-mid-right" aria-hidden="true">
-        <img src="images/doodle_hand_right.png" alt="" class="doodle doodle-hand-right" aria-hidden="true">
-        <img src="images/doodle_phone.png" alt="" class="doodle doodle-phone" aria-hidden="true">
+        <!-- Watercolor top-right -->
+        <img src="images/top.png" alt="" class="watercolor-top" aria-hidden="true">
 
         <!-- Header -->
         <header class="header">
@@ -265,8 +248,13 @@
             <div class="subtitle">מטפלת באמצעות אמנות</div>
         </header>
 
-        <!-- Main content -->
-        <div class="content">
+        <!-- Main text with doodles on the left -->
+        <div class="text-section">
+            <div class="doodles-column">
+                <img src="images/1.png" alt="" aria-hidden="true">
+                <img src="images/2.png" alt="" aria-hidden="true">
+                <img src="images/3.png" alt="" aria-hidden="true">
+            </div>
             <div class="main-text">
                 <p>
                     טיפול באמנות הוא טיפול רגשי, המבוסס על שימוש הבעתי בחומרי
@@ -296,56 +284,55 @@
                     הן בהתבוננות על היצירה כמשיבה ומאפשרת תובנה מעמיקה.
                 </p>
             </div>
+        </div>
 
-            <!-- Separator -->
-            <div class="separator">
-                <svg viewBox="0 0 120 20"><path d="M10,10 Q30,2 60,10 T110,10" stroke="#999" stroke-width="1.5" fill="none"/></svg>
+        <!-- Separator with pen -->
+        <div class="separator">
+            <div class="line"></div>
+            <img src="images/pen.png" alt="" class="pen-img" aria-hidden="true">
+        </div>
+
+        <!-- About section -->
+        <div class="about-section">
+            <div class="about-text">
+                <h2>קצת עליי</h2>
+                <p>
+                    שמי מיכל ואני בעלת תואר שני (M.A) בטיפול
+                    באמנות מאוניברסיטת לסלי.
+                </p>
+                <p>
+                    סיימתי את לימודיי לפני כמעלה מעשרים שנה
+                    ומאז עבדתי כמטפלת במסגרות ציבוריות שונות
+                    כגון: מערכת החינוך, תחנה לבריאות הנפש,
+                    עמותה לילדים בסיכון ועוד.
+                </p>
+                <p>
+                    במהלך שנות עבודתי, ליוויתי ילדים, הורים
+                    ומשפחות עם מגוון קשיים התפתחותיים, רגשיים
+                    משפחתיים ורפואיים וצברתי נסיון רב בעבודה עם
+                    אוכלוסיות שונות.
+                </p>
+                <p>
+                    כיום אני עובדת בעמותת &#x2018;אותי&#x2019;, המתמחה בטיפול
+                    בילדים על הרצף האוטיסטי וליווי משפחותיהם
+                    ובקליניקה פרטית בהוד השרון.
+                </p>
+                <p>
+                    בנוסף, אני לקראת סיום התמחות בלימודי
+                    פסיכותרפיה פסיכואנליטית, במכון ויניקוט
+                    לחשיבה עצמאית.
+                </p>
+                <p>חברת יה"ת.</p>
             </div>
-
-            <!-- About section -->
-            <div class="about-section">
-                <div class="about-text">
-                    <h2>קצת עליי</h2>
-                    <p>
-                        שמי מיכל ואני בעלת תואר שני (M.A) בטיפול
-                        באמנות מאוניברסיטת לסלי.
-                    </p>
-                    <p>
-                        סיימתי את לימודיי לפני כמעלה מעשרים שנה
-                        ומאז עבדתי כמטפלת במסגרות ציבוריות שונות
-                        כגון: מערכת החינוך, תחנה לבריאות הנפש,
-                        עמותה לילדים בסיכון ועוד.
-                    </p>
-                    <p>
-                        במהלך שנות עבודתי, ליוויתי ילדים, הורים
-                        ומשפחות עם מגוון קשיים התפתחותיים, רגשיים
-                        משפחתיים ורפואיים וצברתי נסיון רב בעבודה עם
-                        אוכלוסיות שונות.
-                    </p>
-                    <p>
-                        כיום אני עובדת בעמותת &#x2018;אותי&#x2019;, המתמחה בטיפול
-                        בילדים על הרצף האוטיסטי וליווי משפחותיהם
-                        ובקליניקה פרטית בהוד השרון.
-                    </p>
-                    <p>
-                        בנוסף, אני לקראת סיום התמחות בלימודי
-                        פסיכותרפיה פסיכואנליטית, במכון ויניקוט
-                        לחשיבה עצמאית.
-                    </p>
-                    <p>חברת יה"ת.</p>
-                </div>
-                <div class="about-photo">
-                    <div class="photo-circle">
-                        <img src="images/michal_photo.png" alt="מיכל קנלר ברגמן">
-                    </div>
-                    <img src="images/signature.png" alt="" class="signature" aria-hidden="true">
-                </div>
+            <div class="about-photo">
+                <img src="images/michal.png" alt="מיכל קנלר ברגמן">
             </div>
         </div>
 
-        <!-- Footer -->
+        <!-- Footer with phone -->
         <footer class="footer">
             <a href="tel:054-2533620" class="phone">054-2533620</a>
+            <img src="images/phone.png" alt="" class="phone-img" aria-hidden="true">
         </footer>
     </div>
 </body>
