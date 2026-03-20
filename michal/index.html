@@ -15,7 +15,7 @@
         }
 
         body {
-            background-color: #f5edda;
+            background-color: rgb(247, 237, 210);
             font-family: 'Frank Ruhl Libre', serif;
             font-weight: 700;
             color: #333;
@@ -73,36 +73,35 @@
             font-weight: 700;
         }
 
-        /* Main text section with doodles on the left */
+        /* Main text section with doodles */
         .text-section {
             position: relative;
             z-index: 1;
         }
 
-        .main-text {
+        .text-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        .text-row .doodle {
+            flex: 0 0 120px;
+            text-align: center;
+        }
+
+        .text-row .doodle img {
+            width: 120px;
+            opacity: 0.9;
+        }
+
+        .text-row .text {
+            flex: 1;
             font-size: 1.05em;
             line-height: 1.5;
             text-align: right;
-            padding-right: 160px; /* room for doodles on the right */
-        }
-
-
-        /* Doodles floating on the left side of the text */
-        .doodles-column {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 140px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-            padding-top: 20px;
-        }
-
-        .doodles-column img {
-            width: 120px;
-            opacity: 0.9;
         }
 
         /* Separator - pen drawing a line */
@@ -164,21 +163,21 @@
         /* Footer / phone */
         .footer {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            align-items: flex-end;
             margin-top: 40px;
-            gap: 15px;
             position: relative;
             z-index: 1;
         }
 
         .footer .phone-img {
             width: 120px;
+            margin-bottom: -5px;
         }
 
         .phone {
             font-family: 'Heebo', sans-serif;
-            font-size: 1.5em;
+            font-size: 0.8em;
             font-weight: 700;
             color: #444;
             text-decoration: none;
@@ -208,11 +207,7 @@
                 font-size: 1.6em;
             }
 
-            .main-text {
-                padding-right: 0;
-            }
-
-            .doodles-column {
+            .text-row .doodle {
                 display: none;
             }
 
@@ -242,31 +237,39 @@
             <div class="subtitle">מטפלת באמצעות אמנות</div>
         </header>
 
-        <!-- Main text with doodles on the left -->
+        <!-- Main text with doodles on the right -->
         <div class="text-section">
-            <div class="doodles-column">
-                <img src="images/1.png" alt="" aria-hidden="true">
-                <img src="images/2.png" alt="" aria-hidden="true">
-                <img src="images/3.png" alt="" aria-hidden="true">
+            <div class="text-row">
+                <div class="doodle"><img src="images/1.png" alt="" aria-hidden="true"></div>
+                <div class="text">
+                    טיפול באמנות הוא טיפול רגשי, המבוסס על שימוש הבעתי בחומרי
+                    האמנות. באמצעות החומרים השונים מתאפשר ביטוי רחב, חווייתי
+                    ורגשי של חוויות, פחדים וקשיים בתוך מרחב שבו התקשורת אינה
+                    מוגבלת למילים בלבד. זהו מרחב הפותח צוהר לעולמות לא מילוליים
+                    ולא מודעים ובכך מרחיב את ההבנה. האמנות הינה כלי לביטוי וגילוי
+                    עצמי.
+                </div>
             </div>
-            <div class="main-text">
-                טיפול באמנות הוא טיפול רגשי, המבוסס על שימוש הבעתי בחומרי
-                האמנות. באמצעות החומרים השונים מתאפשר ביטוי רחב, חווייתי
-                ורגשי של חוויות, פחדים וקשיים בתוך מרחב שבו התקשורת אינה
-                מוגבלת למילים בלבד. זהו מרחב הפותח צוהר לעולמות לא מילוליים
-                ולא מודעים ובכך מרחיב את ההבנה. האמנות הינה כלי לביטוי וגילוי
-                עצמי.<br><br>
-                הטיפול הינו פרטני ומיועד לילדים ומבוגרים כאחד, המתמודדים עם
-                קשיים מגוונים המשפיעים על התפקוד היומיומי כגון חרדה דיכאון,
-                ומשברי חיים. אין צורך בידע או ניסיון קודם, אלא רק רצון
-                אמיתי וכן להביא לשינוי.<br><br>
-                אני מאמינה בקשר מיטיב ואותנטי, המאפשר תחושת ביטחון
-                ויכול הולכת וגדלה להשיל את השכבות ולפגוש באומץ את
-                עצמינו.<br>
-                אני מאמינה בכוחה של האמנות כמסייעת לתהליכים אלו, הן
-                במעשה היצירה ככלי המאפשר חיבור אל העצמי ואל האחר,
-                וכמהווה קרקע להתפתחות עיבוד ושינוי.<br>
-                הן בהתבוננות על היצירה כמשיבה ומאפשרת תובנה מעמיקה.
+            <div class="text-row">
+                <div class="doodle"><img src="images/2.png" alt="" aria-hidden="true"></div>
+                <div class="text">
+                    הטיפול הינו פרטני ומיועד לילדים ומבוגרים כאחד, המתמודדים עם
+                    קשיים מגוונים המשפיעים על התפקוד היומיומי כגון חרדה דיכאון,
+                    ומשברי חיים. אין צורך בידע או ניסיון קודם, אלא רק רצון
+                    אמיתי וכן להביא לשינוי.
+                </div>
+            </div>
+            <div class="text-row">
+                <div class="doodle"><img src="images/3.png" alt="" aria-hidden="true"></div>
+                <div class="text">
+                    אני מאמינה בקשר מיטיב ואותנטי, המאפשר תחושת ביטחון
+                    ויכול הולכת וגדלה להשיל את השכבות ולפגוש באומץ את
+                    עצמינו.<br>
+                    אני מאמינה בכוחה של האמנות כמסייעת לתהליכים אלו, הן
+                    במעשה היצירה ככלי המאפשר חיבור אל העצמי ואל האחר,
+                    וכמהווה קרקע להתפתחות עיבוד ושינוי.<br>
+                    הן בהתבוננות על היצירה כמשיבה ומאפשרת תובנה מעמיקה.
+                </div>
             </div>
         </div>
 
